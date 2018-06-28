@@ -1,0 +1,3 @@
+unable-migrations
+add-migration nombredelcambio
+update-database
