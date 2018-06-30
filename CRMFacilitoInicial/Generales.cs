@@ -7,8 +7,8 @@ namespace CRMFacilitoInicial
 {
     public class Generales
     {
-        public static string emailEnvio = "moises.mojica@crediexpress.com";
+        public static string emailEnvio = "music_mojica@yahoo.es";
 
-        public static string contraseniaEmail = "Claroa2060";
+        public static string contraseniaEmail = "Claro0102";
     }
 }

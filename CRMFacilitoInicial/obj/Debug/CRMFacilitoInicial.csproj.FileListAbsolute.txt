@@ -162,7 +162,6 @@ C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\bin\Micr
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\bin\Microsoft.Owin.Security.Google.xml
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.csprojResolveAssemblyReference.cache
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.Migrations.InitialCreate.resources
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.Migrations.UserNombreCompleto.resources
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.csproj.GenerateResource.Cache
