@@ -11,7 +11,6 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using CRMFacilitoInicial.Models;
-using System.Net.Mail;
 
 namespace CRMFacilitoInicial
 {
@@ -20,34 +19,7 @@ namespace CRMFacilitoInicial
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
-
-            SmtpClient client = new SmtpClient("smtp-mail.outlook.com");
-            client.Port = 587;
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.UseDefaultCredentials = false;
-            System.Net.NetworkCredential credentials =
-                new System.Net.NetworkCredential(Generales.emailEnvio, Generales.contraseniaEmail);
-            client.EnableSsl = true;
-            client.Credentials = credentials;
-
-            try
-            {
-                var mail = new MailMessage(CRMFacilitoInicial.Generales.emailEnvio.Trim(), message.Destination.Trim());
-
-                mail.Subject = message.Subject;
-                mail.Body = message.Body;
-                client.Send(mail);
-                return Task.FromResult(0);
-
-            }catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                throw;
-            }
-
-
-
-
+            return Task.FromResult(0);
         }
     }
 
