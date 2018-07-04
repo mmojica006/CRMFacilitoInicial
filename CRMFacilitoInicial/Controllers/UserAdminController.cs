@@ -91,7 +91,7 @@ namespace CRMFacilitoInicial.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = userViewModel.Email, Email = userViewModel.Email };
+                var user = new ApplicationUser { UserName = userViewModel.UserName, Email = userViewModel.Email, NombreCompleto = userViewModel.NombreCompleto };
                 var adminresult = await UserManager.CreateAsync(user, userViewModel.Password);
 
                 //Add User to the selected Roles 
@@ -141,6 +141,8 @@ namespace CRMFacilitoInicial.Controllers
             {
                 Id = user.Id,
                 Email = user.Email,
+                NombreCompleto= user.NombreCompleto,
+                UserName = user.UserName,
                 RolesList = RoleManager.Roles.ToList().Select(x => new SelectListItem()
                 {
                     Selected = userRoles.Contains(x.Name),
@@ -154,7 +156,7 @@ namespace CRMFacilitoInicial.Controllers
         // POST: /Users/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Email,Id")] EditUserViewModel editUser, params string[] selectedRole)
+        public async Task<ActionResult> Edit([Bind(Include = "Email,Id,NombreCompleto,UserName,RolesList")] EditUserViewModel editUser, params string[] selectedRole)
         {
             if (ModelState.IsValid)
             {
@@ -164,7 +166,8 @@ namespace CRMFacilitoInicial.Controllers
                     return HttpNotFound();
                 }
 
-                user.UserName = editUser.Email;
+                user.NombreCompleto = editUser.NombreCompleto;
+                user.UserName = editUser.UserName;
                 user.Email = editUser.Email;
 
                 var userRoles = await UserManager.GetRolesAsync(user.Id);
