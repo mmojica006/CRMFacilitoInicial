@@ -212,6 +212,10 @@
     <Compile Include="Migrations\201806280548064_UserNombreCompleto.Designer.cs">
       <DependentUpon>201806280548064_UserNombreCompleto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807042006498_clasesSistema.cs" />
+    <Compile Include="Migrations\201807042006498_clasesSistema.Designer.cs">
+      <DependentUpon>201807042006498_clasesSistema.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actividad.cs" />
@@ -224,6 +228,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Telefono.cs" />
+    <Compile Include="Models\TipoActividad.cs" />
     <Compile Include="Models\TipoCliente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -310,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806280548064_UserNombreCompleto.resx">
       <DependentUpon>201806280548064_UserNombreCompleto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807042006498_clasesSistema.resx">
+      <DependentUpon>201807042006498_clasesSistema.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

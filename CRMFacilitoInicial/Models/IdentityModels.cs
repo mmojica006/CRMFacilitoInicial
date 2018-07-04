@@ -35,5 +35,16 @@ namespace CRMFacilitoInicial.Models
         {
             return new ApplicationDbContext();
         }
+        public DbSet<TipoActividad> TipoActividades { get; set; }
+        public DbSet<TipoCliente> TipoClientes { get; set; }
+        public DbSet<Actividad> Actividades { get; set; }
+        public DbSet<Contacto> Contactos { get; set; }
+        public DbSet<Direccion> Direcciones { get; set; }
+        public DbSet<Email> Emails { get; set; }
+        public DbSet<Telefono> Telefonos { get; set; }
+        public DbSet<Campania> Campanias { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+
+
     }
 }

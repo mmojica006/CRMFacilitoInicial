@@ -166,3 +166,4 @@ C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\bin\Microsoft.Owin.Security
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.dll
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.pdb
+C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.Migrations.clasesSistema.resources
