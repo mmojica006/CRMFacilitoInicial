@@ -225,12 +225,19 @@
     <Compile Include="Migrations\201807042006498_clasesSistema.Designer.cs">
       <DependentUpon>201807042006498_clasesSistema.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807070355590__emailtipoChange.cs" />
+    <Compile Include="Migrations\201807070355590__emailtipoChange.Designer.cs">
+      <DependentUpon>201807070355590__emailtipoChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actividad.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\BusquedaClienteModelView.cs" />
     <Compile Include="Models\Campania.cs" />
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\ClientesBusqueda.cs" />
+    <Compile Include="Models\ClientesViewModel.cs" />
     <Compile Include="Models\Contacto.cs" />
     <Compile Include="Models\Direccion.cs" />
     <Compile Include="Models\Email.cs" />
@@ -370,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807042006498_clasesSistema.resx">
       <DependentUpon>201807042006498_clasesSistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807070355590__emailtipoChange.resx">
+      <DependentUpon>201807070355590__emailtipoChange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
