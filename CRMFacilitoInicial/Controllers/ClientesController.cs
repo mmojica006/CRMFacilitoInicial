@@ -17,7 +17,60 @@ namespace CRMFacilitoInicial.Controllers
         // GET: Clientes
         public ActionResult Index()
         {
-            return View(db.Clientes.ToList());
+            BusquedaClienteModelView cliente = new BusquedaClienteModelView();
+
+            return View(cliente);
+        }
+
+        [HttpPost]
+        public ActionResult BuscaNombre(BusquedaClienteModelView model)
+        {
+            if (ModelState.IsValid)
+            {
+                ClientesViewModel clientes = new ClientesViewModel();
+                clientes.BuscaPorNombre(model.NombreBuscar);
+                return PartialView("_ListadoClientes", clientes.Clientes);
+            }
+            else
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return View("index", model);
+            }
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult BuscaEmail(BusquedaClienteModelView model)
+        {
+            if (ModelState.IsValid)
+            {
+                ClientesViewModel clientes = new ClientesViewModel();
+                clientes.BuscaPorEmail(model.NombreBuscar);
+                return PartialView("_ListadoClientes", clientes.Clientes);
+            }
+            else
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return PartialView("index", model);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult BuscaTelefono(BusquedaClienteModelView model)
+        {
+            if (ModelState.IsValid)
+            {
+                ClientesViewModel clientes = new ClientesViewModel();
+                clientes.BuscaPorTelefono(model.NombreBuscar);
+                return PartialView("_ListadoClientes", clientes.Clientes);
+            }
+            else
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return PartialView("index", model);
+            }
         }
 
         // GET: Clientes/Details/5

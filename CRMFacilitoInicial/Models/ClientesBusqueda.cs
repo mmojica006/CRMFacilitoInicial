@@ -5,6 +5,7 @@ using System.Web;
 
 namespace CRMFacilitoInicial.Models
 {
+    //Clase creada solo para tener un correo un telefono y una dirección
     public class ClientesBusqueda
     {
         public int ClienteId { get; set; }

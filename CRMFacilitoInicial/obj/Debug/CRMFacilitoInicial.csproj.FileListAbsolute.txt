@@ -167,7 +167,6 @@ C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\bin\Microsoft.Owin.Security
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.dll
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.pdb
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.Migrations.clasesSistema.resources
-C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.csprojResolveAssemblyReference.cache
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.Migrations.clasesSistema.resources
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.csprojResolveAssemblyReference.cache
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.Migrations._emailtipoChange.resources
