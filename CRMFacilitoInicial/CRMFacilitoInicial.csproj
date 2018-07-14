@@ -229,6 +229,10 @@
     <Compile Include="Migrations\201807070355590__emailtipoChange.Designer.cs">
       <DependentUpon>201807070355590__emailtipoChange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807131949532_TipoClienteId.cs" />
+    <Compile Include="Migrations\201807131949532_TipoClienteId.Designer.cs">
+      <DependentUpon>201807131949532_TipoClienteId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actividad.cs" />
@@ -266,6 +270,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\FuncionesCliente.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -275,6 +280,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Listas.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -385,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807070355590__emailtipoChange.resx">
       <DependentUpon>201807070355590__emailtipoChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807131949532_TipoClienteId.resx">
+      <DependentUpon>201807131949532_TipoClienteId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
