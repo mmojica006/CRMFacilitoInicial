@@ -112,16 +112,16 @@ namespace CRMFacilitoInicial.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClienteId,Nombre,RFC,TipoPersonaSat, TipoClienteId")] Cliente cliente)
+        public JsonResult Create(Cliente cliente)
         {
             if (ModelState.IsValid)
             {
                 db.Clientes.Add(cliente);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Json(true);
             }
 
-            return View(cliente);
+            return Json(false);
         }
 
         // GET: Clientes/Edit/5
@@ -131,8 +131,18 @@ namespace CRMFacilitoInicial.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             
             Cliente cliente = db.Clientes.Find(id);
+            if (cliente == null)
+            {
+                return HttpNotFound();
+            }
+            db.Entry(cliente).Collection(p => p.Telefonos).Load();
+            db.Entry(cliente).Collection(p => p.Correos).Load();
+            db.Entry(cliente).Collection(p => p.Direcciones).Load();
+
+
 
             var list = new SelectList(new[]
                {
@@ -157,15 +167,90 @@ namespace CRMFacilitoInicial.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClienteId,Nombre,RFC,TipoPersonaSat, TipoClienteId")] Cliente cliente)
+        public JsonResult Edit( Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cliente).State = EntityState.Modified;
+                //Crear un nuevo objeto de la clase cliente para que guarde los daos
+
+                Cliente clienteModificar = db.Clientes.Find(cliente.ClienteId);
+                //datos que vienen de la base de datos
+                db.Entry(clienteModificar).Collection(p => p.Telefonos).Load(); 
+                db.Entry(clienteModificar).Collection(p => p.Correos).Load();
+                db.Entry(clienteModificar).Collection(p => p.Direcciones).Load();
+
+                //Hay que agregar los nuevos elementos. Elementos que ya no estan en la BD pero que estan en el formulario
+                ProcesaTelefonos(cliente, clienteModificar);
+                ProcesaEmails(cliente, clienteModificar);
+                ProcesaDirecciones(cliente, clienteModificar);
+
+
+
+
+
+
+
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Json(true);
             }
-            return View(cliente);
+            return Json(true);
+        }
+
+        private void ProcesaTelefonos(Cliente cliente, Cliente clienteModificar)
+        {
+            var telefonosExistentes = new List<Telefono>(); //Se toman del cliente a modificar, teléfonos que hay en la BD
+            if (clienteModificar.Telefonos != null)
+                telefonosExistentes = clienteModificar.Telefonos.ToList<Telefono>(); // a los telefonos existentes le agrego los teléfonos a modificar
+            var telefonosModificados = new List<Telefono>(); //telefonos que vienen del formulario
+            if (cliente.Telefonos != null)
+                telefonosModificados = cliente.Telefonos.ToList<Telefono>();
+            var telefonosAgregar = telefonosModificados.Except(telefonosExistentes); //Compara los id
+            var telefonosEliminar = telefonosExistentes.Except(telefonosModificados);
+
+            telefonosEliminar.ToList<Telefono>().ForEach(t => db.Entry(t).State = EntityState.Deleted);
+
+            foreach (Telefono telefono in telefonosAgregar)
+            {
+                clienteModificar.Telefonos.Add(telefono);
+            }
+        }
+
+        private void ProcesaEmails(Cliente cliente, Cliente clienteModificar)
+        {
+            var emailsExistentes = new List<Email>();
+            if (clienteModificar.Correos != null)
+                emailsExistentes = clienteModificar.Correos.ToList<Email>();
+            var emailsModificados = new List<Email>();
+            if (cliente.Correos != null)
+                emailsModificados = cliente.Correos.ToList<Email>();
+            var emailsAgregar = emailsModificados.Except(emailsExistentes);
+            var emailsEliminar = emailsExistentes.Except(emailsModificados);
+
+            emailsEliminar.ToList<Email>().ForEach(t => db.Entry(t).State = System.Data.Entity.EntityState.Deleted);
+
+            foreach (Email correo in emailsAgregar)
+            {
+                clienteModificar.Correos.Add(correo);
+            }
+        }
+
+        private void ProcesaDirecciones(Cliente cliente, Cliente clienteModificar)
+        {
+            var direccionesExistentes = new List<Direccion>();
+            if (clienteModificar.Direcciones != null)
+                direccionesExistentes = clienteModificar.Direcciones.ToList<Direccion>();
+            var direccionesModificados = new List<Direccion>();
+            if (cliente.Direcciones != null)
+                direccionesModificados = cliente.Direcciones.ToList<Direccion>();
+            var direccionesAgregar = direccionesModificados.Except(direccionesExistentes);
+            var direccionesEliminar = direccionesExistentes.Except(direccionesModificados);
+
+            direccionesEliminar.ToList<Direccion>().ForEach(t => db.Entry(t).State = System.Data.Entity.EntityState.Deleted);
+
+            foreach (Direccion direccion in direccionesAgregar)
+            {
+                clienteModificar.Direcciones.Add(direccion);
+            }
         }
 
         // GET: Clientes/Delete/5
