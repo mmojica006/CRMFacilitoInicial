@@ -81,6 +81,10 @@ namespace CRMFacilitoInicial.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Cliente cliente = db.Clientes.Find(id);
+            db.Entry(cliente).Reference("Tipo").Load();
+            db.Entry(cliente).Collection(p => p.Telefonos).Load();
+            db.Entry(cliente).Collection(p => p.Correos).Load();
+            db.Entry(cliente).Collection(p => p.Direcciones).Load();
             if (cliente == null)
             {
 
@@ -261,6 +265,7 @@ namespace CRMFacilitoInicial.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Cliente cliente = db.Clientes.Find(id);
+            db.Entry(cliente).Reference("Tipo").Load();
             if (cliente == null)
             {
                 return HttpNotFound();
@@ -269,11 +274,23 @@ namespace CRMFacilitoInicial.Controllers
         }
 
         // POST: Clientes/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Delete")]//Despues de ejecutar el get la accion siga siendo la misma aunque el nombre de la acción cambie
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            //una forma de eliminar clientes es referenciando las tablas que estan referenciando a cliente
             Cliente cliente = db.Clientes.Find(id);
+            db.Entry(cliente).Collection(p => p.Telefonos).Load();
+            cliente.Telefonos.ToList<Telefono>().ForEach(x => db.Entry(x).State = EntityState.Deleted);
+
+
+            db.Entry(cliente).Collection(p => p.Correos).Load();
+            cliente.Correos.ToList<Email>().ForEach(x => db.Entry(x).State = EntityState.Deleted);
+
+            db.Entry(cliente).Collection(p => p.Direcciones).Load();
+            cliente.Direcciones.ToList<Direccion>().ForEach(x => db.Entry(x).State = EntityState.Deleted);
+
+
             db.Clientes.Remove(cliente);
             db.SaveChanges();
             return RedirectToAction("Index");
