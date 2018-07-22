@@ -233,9 +233,14 @@
     <Compile Include="Migrations\201807131949532_TipoClienteId.Designer.cs">
       <DependentUpon>201807131949532_TipoClienteId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807220121540_modifica_actividades.cs" />
+    <Compile Include="Migrations\201807220121540_modifica_actividades.Designer.cs">
+      <DependentUpon>201807220121540_modifica_actividades.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actividad.cs" />
+    <Compile Include="Models\ActividadViewModel.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\BusquedaClienteModelView.cs" />
     <Compile Include="Models\Campania.cs" />
@@ -394,6 +399,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807131949532_TipoClienteId.resx">
       <DependentUpon>201807131949532_TipoClienteId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807220121540_modifica_actividades.resx">
+      <DependentUpon>201807220121540_modifica_actividades.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

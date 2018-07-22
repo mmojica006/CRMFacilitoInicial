@@ -20,24 +20,14 @@ namespace CRMFacilitoInicial.Controllers
             return View(db.Actividades.ToList());
         }
 
-        // GET: Actividades/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Actividad actividad = db.Actividades.Find(id);
-            if (actividad == null)
-            {
-                return HttpNotFound();
-            }
-            return View(actividad);
-        }
+      
+       
 
         // GET: Actividades/Create
         public ActionResult Create()
         {
+            var tipos = new SelectList(db.TipoActividades.ToList(), "TipoActividadId", "Descripcion");
+            ViewData["tipos"] = tipos;
             return View();
         }
 
@@ -46,14 +36,35 @@ namespace CRMFacilitoInicial.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ActividadId,Descripcion,FechaInicial,FechaFinal,FechaInicialPlan,FechaFinalPlan,Estado")] Actividad actividad)
+        public ActionResult Create( ActividadViewModel factividad)
         {
+
+            Actividad actividad = new Actividad();
+
+
+
             if (ModelState.IsValid)
             {
+
+                actividad.ActividadId = factividad.ActividadId;
+                actividad.FechaInicial = factividad.FechaInicial;
+                actividad.FechaFinal = factividad.FechaInicial;
+                actividad.FechaInicialPlan = factividad.FechaInicial;
+                actividad.FechaFinalPlan = factividad.FechaInicial;
+                actividad.ClienteId = factividad.ClienteId;
+                actividad.TipoActividadId = factividad.TipoActividadId;
+                actividad.Descripcion = factividad.Descripcion;
+                actividad.Estado = 0;
+
+
+
                 db.Actividades.Add(actividad);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            var tipos = new SelectList(db.TipoActividades.ToList(), "TipoActividadId", "Descripcion");
+            ViewData["tipos"] = tipos;
+
 
             return View(actividad);
         }
