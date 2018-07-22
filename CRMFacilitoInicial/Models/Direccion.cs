@@ -16,5 +16,6 @@ namespace CRMFacilitoInicial.Models
         public string Municipio { get; set; }
         public string Estado { get; set; }
         public bool Principal { get; set; }
+        public virtual Cliente Cliente { get; set; }
     }
 }

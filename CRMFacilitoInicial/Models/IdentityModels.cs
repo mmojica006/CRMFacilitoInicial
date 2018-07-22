@@ -31,6 +31,26 @@ namespace CRMFacilitoInicial.Models
         {
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Telefono>() //El telefono es el que se va a modificar
+                .HasRequired(x => x.Cliente).WithMany(x => x.Telefonos).WillCascadeOnDelete(true);  //Un cliente puede tener varios telefonos por eso es la relación de uno a muchos
+
+
+            modelBuilder.Entity<Email>()
+                .HasRequired(x => x.Cliente).WithMany(x => x.Correos).WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<Direccion>()
+             .HasRequired(x => x.Cliente).WithMany(x => x.Direcciones).WillCascadeOnDelete(true);
+
+
+
+            //como se cambio las clases del modelo hay que actualizar la bd y borrar los registros de bd para q no de error de nulos
+            //ya no se van a permitir nulos
+
+        }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

@@ -6,6 +6,7 @@
         public string NumeroTelefonico { get; set; }
         public string Tipo { get; set; }
         public bool Principal { get; set; }
+        public virtual Cliente Cliente { get; set; }
 
     }
 }

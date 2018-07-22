@@ -144,7 +144,50 @@ namespace CRMFacilitoInicial.Controllers
             }
             db.Entry(cliente).Collection(p => p.Telefonos).Load();
             db.Entry(cliente).Collection(p => p.Correos).Load();
-            db.Entry(cliente).Collection(p => p.Direcciones).Load();
+            db.Entry(cliente).Collection(p => p.Direcciones).Load();          
+
+
+            //Cliente clienteMostrar = new Cliente();
+            //clienteMostrar.ClienteId = cliente.ClienteId;
+            //clienteMostrar.Nombre = cliente.Nombre;
+            //clienteMostrar.TipoClienteId = cliente.TipoClienteId;
+            //clienteMostrar.RFC = cliente.RFC;
+            //clienteMostrar.TipoPersonaSat = cliente.TipoPersonaSat;
+
+            //clienteMostrar.Telefonos = new List<Telefono>();
+
+            //foreach (var item in cliente.Telefonos)
+            //{
+            //    Telefono tel = new Telefono();
+            //    tel.TelefonoId = item.TelefonoId;
+            //    tel.NumeroTelefonico = item.NumeroTelefonico;
+            //    tel.Tipo = item.Tipo;
+            //    tel.Principal = item.Principal;
+            //    clienteMostrar.Telefonos.Add(tel);
+            //}
+            //clienteMostrar.Correos = new List<Email>();
+            //foreach (var item in cliente.Correos)
+            //{
+            //    Email email = new Email();
+            //    email.EmailId = item.EmailId;
+            //    email.Principal = item.Principal;
+            //    email.Direccion = item.Direccion;
+            //    clienteMostrar.Correos.Add(email);
+            //}
+            //clienteMostrar.Direcciones = new List<Direccion>();
+            //foreach (var item in cliente.Direcciones)
+            //{
+            //    Direccion dir = new Direccion();
+            //    dir.DireccionId = item.DireccionId;
+            //    dir.Calle = item.Calle;
+            //    dir.NumExterior = item.NumExterior;
+            //    dir.NumInterior = item.NumInterior;
+            //    dir.Colonia = item.Colonia;
+            //    dir.Municipio = item.Municipio;
+            //    dir.Estado = item.Estado;
+            //    clienteMostrar.Direcciones.Add(dir);
+            //}
+
 
 
 
@@ -281,14 +324,14 @@ namespace CRMFacilitoInicial.Controllers
             //una forma de eliminar clientes es referenciando las tablas que estan referenciando a cliente
             Cliente cliente = db.Clientes.Find(id);
             db.Entry(cliente).Collection(p => p.Telefonos).Load();
-            cliente.Telefonos.ToList<Telefono>().ForEach(x => db.Entry(x).State = EntityState.Deleted);
+            //cliente.Telefonos.ToList<Telefono>().ForEach(x => db.Entry(x).State = EntityState.Deleted);
 
 
             db.Entry(cliente).Collection(p => p.Correos).Load();
-            cliente.Correos.ToList<Email>().ForEach(x => db.Entry(x).State = EntityState.Deleted);
+            //cliente.Correos.ToList<Email>().ForEach(x => db.Entry(x).State = EntityState.Deleted);
 
             db.Entry(cliente).Collection(p => p.Direcciones).Load();
-            cliente.Direcciones.ToList<Direccion>().ForEach(x => db.Entry(x).State = EntityState.Deleted);
+            //cliente.Direcciones.ToList<Direccion>().ForEach(x => db.Entry(x).State = EntityState.Deleted);
 
 
             db.Clientes.Remove(cliente);

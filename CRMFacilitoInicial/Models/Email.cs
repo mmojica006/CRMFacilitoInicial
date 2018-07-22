@@ -10,6 +10,7 @@ namespace CRMFacilitoInicial.Models
         public int EmailId { get; set; }
         public string Direccion { get; set; }
         public bool Principal { get; set; }
+        public virtual Cliente Cliente { get; set; }
 
     }
 }
