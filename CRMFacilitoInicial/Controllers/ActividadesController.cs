@@ -81,7 +81,18 @@ namespace CRMFacilitoInicial.Controllers
             {
                 return HttpNotFound();
             }
-            return View(actividad);
+            db.Entry(actividad).Reference("ClienteActividad").Load();
+            ActividadViewModel factividad = new ActividadViewModel();
+            factividad.ActividadId = actividad.ActividadId;
+            factividad.Descripcion = actividad.Descripcion;
+            factividad.FechaInicial = actividad.FechaInicial;
+            factividad.ClienteId = actividad.ClienteId;
+            factividad.TipoActividadId = actividad.TipoActividadId;
+            factividad.nombre = actividad.ClienteActividad.Nombre;
+            var tipos = new SelectList(db.TipoActividades.ToList(), "TipoActividadId", "Descripcion");
+            ViewData["tipos"] = tipos;
+            factividad.ObtenTelefonosYEmailsDeCliente();
+            return PartialView(factividad);
         }
 
         // POST: Actividades/Edit/5
@@ -89,15 +100,27 @@ namespace CRMFacilitoInicial.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ActividadId,Descripcion,FechaInicial,FechaFinal,FechaInicialPlan,FechaFinalPlan,Estado")] Actividad actividad)
+        public ActionResult Edit(ActividadViewModel factividad)
         {
             if (ModelState.IsValid)
             {
+                Actividad actividad = db.Actividades.Find(factividad.ActividadId);
+                actividad.ActividadId = factividad.ActividadId;
+                actividad.FechaInicial = factividad.FechaInicial;
+                actividad.FechaFinal = factividad.FechaInicial;
+                actividad.FechaInicialPlan = factividad.FechaInicial;
+                actividad.FechaFinalPlan = factividad.FechaInicial;
+                actividad.ClienteId = factividad.ClienteId;
+                actividad.TipoActividadId = factividad.TipoActividadId;
+                actividad.Descripcion = factividad.Descripcion;
+                actividad.Estado = 0;
                 db.Entry(actividad).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Json(new { success = true });
             }
-            return View(actividad);
+            var tipos = new SelectList(db.TipoActividades.ToList(), "TipoActividadId", "Descripcion");
+            ViewData["tipos"] = tipos;
+            return PartialView(factividad);
         }
 
         // GET: Actividades/Delete/5
