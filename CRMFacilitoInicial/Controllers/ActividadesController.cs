@@ -88,7 +88,7 @@ namespace CRMFacilitoInicial.Controllers
             factividad.FechaInicial = actividad.FechaInicial;
             factividad.ClienteId = actividad.ClienteId;
             factividad.TipoActividadId = actividad.TipoActividadId;
-            factividad.nombre = actividad.ClienteActividad.Nombre;
+            factividad.nombre = actividad.ClienteActividad.Nombre; //Actualizar el nombre en el formulario
             var tipos = new SelectList(db.TipoActividades.ToList(), "TipoActividadId", "Descripcion");
             ViewData["tipos"] = tipos;
             factividad.ObtenTelefonosYEmailsDeCliente();

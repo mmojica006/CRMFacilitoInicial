@@ -93,15 +93,27 @@
         </div>
     </div>
 </div>
-<script>
-        $('#nombre')
-                    .autocomplete({
-                        source: '@Url.Action("Lista", "Clientes")',
-                        select: function (event, ui) {
-                            //alert('you have selected ' + ui.item.value + ' ID: ' + ui.item.id);
-                            $('#ClienteId').val(ui.item.id);
-                            $('#nombre').val(ui.item.value);
-                            return false;
-                        }
-                    });
-</script>
+
+@section Scripts {
+
+
+
+
+    <script>
+            $('.datepicker').datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                language: 'es'
+            });
+            $('#nombre')
+                        .autocomplete({
+                            source: '@Url.Action("Lista", "Clientes")',
+                            select: function (event, ui) {
+                                //alert('you have selected ' + ui.item.value + ' ID: ' + ui.item.id);
+                                $('#ClienteId').val(ui.item.id);
+                                $('#nombre').val(ui.item.value);
+                                return false;
+                            }
+                        });
+    </script>
+}
