@@ -13,7 +13,8 @@ namespace CRMFacilitoInicial
                         "~/Scripts/jquery.unobtrusive-ajax.min.js",
                         "~/Scripts/bootstrap-datepicker.js",
                         "~/Scripts/locales/bootstrap-datepicker.es.min.js",
-                         "~/Scripts/jquery-ui-1.12.1.js"));
+                         "~/Scripts/jquery-ui-1.12.1.js"
+                          ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -31,7 +32,8 @@ namespace CRMFacilitoInicial
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                        "~/Content/bootstrap-datepicker.css",
-                       "~/Content/themes/base/*.css"));
+                       "~/Content/themes/base/*.css",
+                       "~/Content/fullcalendar.css"));
         }
     }
 }

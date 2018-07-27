@@ -14,6 +14,41 @@ namespace CRMFacilitoInicial.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public JsonResult eventos(DateTime start, DateTime end)
+        {
+            var actividades = (from a in db.Actividades
+                               join c in db.Clientes
+                               on a.ClienteId equals c.ClienteId
+                               where a.FechaInicial >= start
+                               && a.FechaInicial <= end
+                               select new 
+                               { 
+                                   a.ActividadId,
+                                  a.FechaInicial,
+                                  a.FechaFinal,
+                                  c.Nombre,
+                                   a.Descripcion
+
+                               }).ToList();
+
+            List<Events> eventos = new List<Events>();
+            foreach(var item in actividades)
+            {
+                Events evento = new  Events();
+
+                evento.id = item.ActividadId;
+                evento.start = item.FechaInicial.ToString("o");
+                evento.end = item.FechaInicial.ToString("o");
+                evento.title = item.Nombre + " " + item.Descripcion;
+                eventos.Add(evento);
+
+            }
+
+
+            return Json(eventos, JsonRequestBehavior.AllowGet);
+
+        }
+
         // GET: Actividades
         public ActionResult Index()
         {
@@ -157,5 +192,6 @@ namespace CRMFacilitoInicial.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }
