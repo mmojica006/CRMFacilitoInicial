@@ -13,7 +13,7 @@ namespace CRMFacilitoInicial
                         "~/Scripts/jquery.unobtrusive-ajax.min.js",
                         "~/Scripts/bootstrap-datepicker.js",
                         "~/Scripts/locales/bootstrap-datepicker.es.min.js",
-                         "~/Scripts/jquery-ui-1.12.1.js"
+                         "~/Scripts/jquery-ui-1.12.0.js"
                           ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(

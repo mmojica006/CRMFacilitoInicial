@@ -63,7 +63,7 @@ namespace CRMFacilitoInicial.Controllers
         {
             var tipos = new SelectList(db.TipoActividades.ToList(), "TipoActividadId", "Descripcion");
             ViewData["tipos"] = tipos;
-            return View();
+            return PartialView();
         }
 
         // POST: Actividades/Create
@@ -74,13 +74,9 @@ namespace CRMFacilitoInicial.Controllers
         public ActionResult Create( ActividadViewModel factividad)
         {
 
-            Actividad actividad = new Actividad();
-
-
-
+              Actividad actividad = new Actividad();
             if (ModelState.IsValid)
             {
-
                 actividad.ActividadId = factividad.ActividadId;
                 actividad.FechaInicial = factividad.FechaInicial;
                 actividad.FechaFinal = factividad.FechaInicial;
@@ -90,18 +86,13 @@ namespace CRMFacilitoInicial.Controllers
                 actividad.TipoActividadId = factividad.TipoActividadId;
                 actividad.Descripcion = factividad.Descripcion;
                 actividad.Estado = 0;
-
-
-
                 db.Actividades.Add(actividad);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Json(new {success = true});
             }
             var tipos = new SelectList(db.TipoActividades.ToList(), "TipoActividadId", "Descripcion");
             ViewData["tipos"] = tipos;
-
-
-            return View(actividad);
+            return PartialView(factividad);
         }
 
         // GET: Actividades/Edit/5
