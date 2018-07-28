@@ -22,6 +22,15 @@ namespace CRMFacilitoInicial.Controllers
             return View(cliente);
         }
 
+        public JsonResult Lista(string term)
+        {
+            ClientesViewModel cliente = new ClientesViewModel();
+
+            return Json(cliente.ClientesAutocompletado(term), JsonRequestBehavior.AllowGet);
+
+        }
+
+
         [HttpPost]
         public ActionResult BuscaNombre(BusquedaClienteModelView model)
         {
