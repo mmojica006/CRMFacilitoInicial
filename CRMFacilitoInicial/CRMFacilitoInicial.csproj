@@ -237,6 +237,10 @@
     <Compile Include="Migrations\201807220121540_modifica_actividades.Designer.cs">
       <DependentUpon>201807220121540_modifica_actividades.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807290403207_modifica_campanias.cs" />
+    <Compile Include="Migrations\201807290403207_modifica_campanias.Designer.cs">
+      <DependentUpon>201807290403207_modifica_campanias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actividad.cs" />
@@ -244,6 +248,7 @@
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\BusquedaClienteModelView.cs" />
     <Compile Include="Models\Campania.cs" />
+    <Compile Include="Models\CampaniaViewModel.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\ClientesBusqueda.cs" />
     <Compile Include="Models\ClientesViewModel.cs" />
@@ -582,6 +587,7 @@
     <Content Include="Views\Telefonos\Edit.cshtml" />
     <Content Include="Views\Telefonos\Index.cshtml" />
     <Content Include="Views\Clientes\_ListadoClientes.cshtml" />
+    <Content Include="Views\Campanias\_ListadoActividades.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -608,6 +614,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807220121540_modifica_actividades.resx">
       <DependentUpon>201807220121540_modifica_actividades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807290403207_modifica_campanias.resx">
+      <DependentUpon>201807290403207_modifica_campanias.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

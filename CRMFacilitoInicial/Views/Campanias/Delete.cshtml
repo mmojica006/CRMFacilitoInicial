@@ -1,11 +1,8 @@
-﻿@model CRMFacilitoInicial.Models.Campania
-
+﻿﻿@model CRMFacilitoInicial.Models.Campania
 @{
     ViewBag.Title = "Delete";
 }
-
 <h2>Delete</h2>
-
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Campania</h4>
@@ -14,30 +11,24 @@
         <dt>
             @Html.DisplayNameFor(model => model.Nombre)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Nombre)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.FechaPlan)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.FechaPlan)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Fecha)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Fecha)
         </dd>
-
     </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

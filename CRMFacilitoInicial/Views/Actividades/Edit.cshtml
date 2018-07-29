@@ -83,12 +83,11 @@
                     
                 </div>
             }
-            @if (User.IsInRole("AdminAgenda") || User.IsInRole("Admin"))
-            {
+           
                 <div>
                     @Html.ActionLink("Eliminar", "Delete", new { id = @Model.ActividadId }, new { @class = "btn btn-default" })
                 </div>
-            }
+            
         </div>
     </div>
 </div>

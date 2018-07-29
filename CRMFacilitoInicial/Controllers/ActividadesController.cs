@@ -152,16 +152,10 @@ namespace CRMFacilitoInicial.Controllers
         // GET: Actividades/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Actividad actividad = db.Actividades.Find(id);
-            if (actividad == null)
-            {
-                return HttpNotFound();
-            }
-            return View(actividad);
+            db.Actividades.Remove(actividad);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // POST: Actividades/Delete/5

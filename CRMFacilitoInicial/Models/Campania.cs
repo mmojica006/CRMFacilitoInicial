@@ -9,9 +9,20 @@ namespace CRMFacilitoInicial.Models
     {
 
         public int CampaniaId { get; set; }
+
         public string Nombre { get; set; }
+
         public DateTime FechaPlan { get; set; }
+
         public DateTime Fecha { get; set; }
+
+        public bool Publicada { get; set; }
+
         public ICollection<Actividad> Actividades { get; set; }
+
+        public Campania()
+        {
+            Actividades = new List<Actividad>();
+        }
     }
 }

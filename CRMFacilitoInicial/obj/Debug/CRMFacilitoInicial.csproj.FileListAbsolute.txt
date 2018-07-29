@@ -174,3 +174,5 @@ C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debu
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.Migrations._emailtipoChange.resources
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.Migrations.TipoClienteId.resources
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.Migrations.modifica_actividades.resources
+C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.Migrations.modifica_campanias.resources
+C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.csprojResolveAssemblyReference.cache
