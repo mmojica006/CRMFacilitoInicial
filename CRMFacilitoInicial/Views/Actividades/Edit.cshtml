@@ -74,27 +74,25 @@
                             <label>@Model.Emails</label>
                         </div>
                     </div>
-                    @if (User.IsInRole("AdminAgenda") || User.IsInRole("Admin"))
-                    {
+                 
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
                                 <input type="submit" value="Guardar" class="btn btn-default" />
                             </div>
                         </div>
-                    }
+                    
                 </div>
             }
-            @if (User.IsInRole("AdminAgenda") || User.IsInRole("Admin"))
-            {
+           
                 <div>
                     @Html.ActionLink("Eliminar", "Delete", new { id = @Model.ActividadId }, new { @class = "btn btn-default" })
                 </div>
-            }
+            
         </div>
     </div>
 </div>
 
-@section Scripts {
+
 
 
 
@@ -116,4 +114,4 @@
                             }
                         });
     </script>
-}
+
