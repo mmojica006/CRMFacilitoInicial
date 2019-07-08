@@ -29,19 +29,19 @@ textarea {
 }
 
 .btn-default {
-  color: #ffffff;
-  background-color: #990f30;
-  border-color: #cccccc;
+    color: #ffffff;
+    background-color: #017cc0;
+    border-color: #cccccc;
 }
-.btn-default:hover,
-.btn-default:focus,
-.btn-default:active,
-.btn-default.active,
-.open .dropdown-toggle.btn-default {
-  color: #ffffff;
-  background-color: #740b24;
-  border-color: #adadad;
-}
+    .btn-default:hover,
+    .btn-default:focus,
+    .btn-default:active,
+    .btn-default.active,
+    .open .dropdown-toggle.btn-default {
+        color: #ffffff;
+        background-color: #003673;
+        border-color: #adadad;
+    }
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
@@ -71,11 +71,11 @@ fieldset[disabled] .btn-default.active {
 }
 
 .navbar-default {
-  background-color: #98dae8;
-  border-color: #644bff;
+    background-color: #017cc0;
+    border-color: transparent;
 }
 .navbar-default .navbar-brand {
-  color: #777777;
+  color: #fff;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
@@ -86,7 +86,7 @@ fieldset[disabled] .btn-default.active {
   color: #000000;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #777777;
+  color: #fff;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
@@ -127,7 +127,7 @@ fieldset[disabled] .btn-default.active {
 }
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #777777;
+    color: #fff;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
@@ -159,4 +159,13 @@ fieldset[disabled] .btn-default.active {
 }
 .ui-autocomplete {
     z-index:1051 !important;
+}
+.jumbotron {
+    background-image: url("../imgs/intranet.jpg");
+    background-size: cover;
+    height: 40vh;
+}
+
+.navbar {
+    margin-bottom: 0px;
 }

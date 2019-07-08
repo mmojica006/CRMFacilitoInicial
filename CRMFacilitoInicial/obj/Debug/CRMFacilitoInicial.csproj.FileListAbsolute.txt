@@ -188,3 +188,6 @@ C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\bin\Syst
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\bin\System.Net.Http.Formatting.xml
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\bin\System.Web.Http.xml
 C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\bin\System.Web.Http.WebHost.xml
+C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.csprojAssemblyReference.cache
+C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.csproj.CoreCompileInputs.cache
+C:\Desarrollos\CRMFacilitoInicial\CRMFacilitoInicial\CRMFacilitoInicial\obj\Debug\CRMFacilitoInicial.csproj.CopyComplete

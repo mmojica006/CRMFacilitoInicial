@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body style="    padding-top: 90px;">
+<body style="    padding-top: 53px;">
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -17,12 +17,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("CRMFacilito", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                <a href="http://www.expea.mx"><img src="/imgs/Expea4.png" alt="Logo expea" /></a>
+                @Html.ActionLink("INTRANET", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a href="http://www.expea.mx"><img src="/imgs/logo.png" alt="Logo expea" /></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Tareas Diarias", "Index", "Home")</li>
                     <li>@Html.ActionLink("Actividades", "Index", "Actividades")</li>
                     <li>@Html.ActionLink("Clientes", "Index", "Clientes")</li>
                     <li>@Html.ActionLink("Campañas", "Index", "Campanias")</li>
@@ -36,7 +37,7 @@
                         </ul>
                     </li>
 
-    
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
